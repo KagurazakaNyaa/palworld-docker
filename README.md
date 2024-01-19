@@ -1,2 +1,24 @@
 # palworld-docker
+
+[![Check Update](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/update.yml/badge.svg)](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/update.yml)
+[![Build Docker Image](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/build.yml/badge.svg)](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/build.yml)
+![Docker Pulls](https://img.shields.io/docker/pulls/kagurazakanyaa/palworld)
+![Docker Stars](https://img.shields.io/docker/stars/kagurazakanyaa/palworld)
+![Image Size](https://img.shields.io/docker/image-size/kagurazakanyaa/palworld/latest)
+
 Palworld dedicated server with docker
+
+## Environments
+
+| Variable           | Describe                                                    | Default Values | Allowed Values |
+|--------------------|-------------------------------------------------------------|----------------|----------------|
+| MAX_PLAYERS        | Change the maximum number of participants on the server.    | 16             | 1-32           |
+| GAME_PORT          | Change the port number used to listen to the server.        | 7777           | 1024-65535     |
+| ENABLE_MULTITHREAD | Improves performance in multi-threaded CPU environments.    | true           | true/false     |
+| FORCE_UPDATE       | Whether the server should be update each time start.        | false          | true/false     |
+
+## Volumes
+
+|Path                      |Describe              |
+|--------------------------|----------------------|
+|`/opt/palworld/Pal/Saved` |Game config and saves.|

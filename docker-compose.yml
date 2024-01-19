@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  dedicated-server:
+    image: kagurazakanyaa/palworld:latest
+    build:
+      context: .
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 7777:7777/udp
+    environment:
+      - GAME_PORT=7777
+      - MAX_PLAYERS=16
+      - ENABLE_MULTITHREAD=true
+      - FORCE_UPDATE=false
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/opt/palworld/Pal/Saved
