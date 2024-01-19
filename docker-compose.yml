@@ -8,7 +8,6 @@ services:
     restart: unless-stopped
     network_mode: bridge
     ports:
-      - 8211:8211/tcp
       - 8211:8211/udp
     environment:
       - GAME_PORT=8211

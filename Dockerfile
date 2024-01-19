@@ -15,7 +15,7 @@ ENV FORCE_UPDATE=false
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-EXPOSE 8211/udp 8211/tcp
+EXPOSE 8211/udp
 
 VOLUME [ "/opt/palworld/Pal/Saved" ]
 
