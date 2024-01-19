@@ -5,14 +5,17 @@ WORKDIR /opt/palworld
 
 RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/palworld" +login anonymous +app_update 2394010 validate +quit
 
-ENV GAME_PORT=7777
-ENV MAX_PLAYERS=16
+ENV GAME_PORT=8211
+ENV MAX_PLAYERS=32
 ENV ENABLE_MULTITHREAD=true
+ENV IS_PUBLIC=false
+ENV PUBLIC_IP=
+ENV PUBLIC_PORT=
 ENV FORCE_UPDATE=false
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-EXPOSE 7777/udp 7777/tcp
+EXPOSE 8211/udp 8211/tcp
 
 VOLUME [ "/opt/palworld/Pal/Saved" ]
 

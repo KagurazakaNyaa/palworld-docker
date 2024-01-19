@@ -10,12 +10,15 @@ Palworld dedicated server with docker
 
 ## Environments
 
-| Variable           | Describe                                                    | Default Values | Allowed Values |
-|--------------------|-------------------------------------------------------------|----------------|----------------|
-| MAX_PLAYERS        | Change the maximum number of participants on the server.    | 16             | 1-32           |
-| GAME_PORT          | Change the port number used to listen to the server.        | 7777           | 1024-65535     |
-| ENABLE_MULTITHREAD | Improves performance in multi-threaded CPU environments.    | true           | true/false     |
-| FORCE_UPDATE       | Whether the server should be update each time start.        | false          | true/false     |
+| Variable           | Describe                                                    | Default Values | Allowed Values       |
+|--------------------|-------------------------------------------------------------|----------------|----------------------|
+| MAX_PLAYERS        | Change the maximum number of participants on the server.    | 32             | 1-32                 |
+| GAME_PORT          | Change the port number used to listen to the server.        | 8211           | 1024-65535           |
+| ENABLE_MULTITHREAD | Improves performance in multi-threaded CPU environments.    | true           | true/false           |
+| IS_PUBLIC          | Setup server as a community server.                         | false          | true/false           |
+| PUBLIC_IP          | If not specified, it will be detected automatically.        |                | all vaild ip address |
+| PUBLIC_PORT        | If not specified, it will be detected automatically.        |                | 1024-65535           |
+| FORCE_UPDATE       | Whether the server should be update each time start.        | false          | true/false           |
 
 ## Volumes
 
