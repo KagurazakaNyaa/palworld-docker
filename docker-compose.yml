@@ -3,8 +3,8 @@ version: '3.9'
 services:
   dedicated-server:
     image: kagurazakanyaa/palworld:latest
-    build:
-      context: .
+    # build: # only use in test
+    #   context: .
     restart: unless-stopped
     network_mode: bridge
     ports:
@@ -17,6 +17,12 @@ services:
       - PUBLIC_IP=
       - PUBLIC_PORT=
       - FORCE_UPDATE=false
+      - SERVER_NAME=Default Palworld Server
+      - SERVER_DESC=Default Palworld Server
+      - ADMIN_PASSWORD=changeme
+      - SERVER_PASSWORD=
+      - RCON_ENABLED=false
+      - RCON_PORT=25575
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/palworld/Pal/Saved
