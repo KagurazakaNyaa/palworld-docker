@@ -12,6 +12,12 @@ ENV IS_PUBLIC=false
 ENV PUBLIC_IP=
 ENV PUBLIC_PORT=
 ENV FORCE_UPDATE=false
+ENV SERVER_NAME="Default Palworld Server"
+ENV SERVER_DESC="Default Palworld Server"
+ENV ADMIN_PASSWORD=changeme
+ENV SERVER_PASSWORD=
+ENV RCON_ENABLED=false
+ENV RCON_PORT=25575
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 

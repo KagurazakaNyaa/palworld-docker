@@ -10,6 +10,7 @@ Palworld dedicated server with docker
 
 ## Environments
 
+The variables in the table below affect the server's startup command, see <https://tech.palworldgame.com/dedicated-server-guide#settings> and <https://tech.palworldgame.com/community-server-guide>
 | Variable           | Describe                                                    | Default Values | Allowed Values       |
 |--------------------|-------------------------------------------------------------|----------------|----------------------|
 | MAX_PLAYERS        | Change the maximum number of participants on the server.    | 32             | 1-32                 |
@@ -19,6 +20,18 @@ Palworld dedicated server with docker
 | PUBLIC_IP          | If not specified, it will be detected automatically.        |                | all vaild ip address |
 | PUBLIC_PORT        | If not specified, it will be detected automatically.        |                | 1024-65535           |
 | FORCE_UPDATE       | Whether the server should be update each time start.        | false          | true/false           |
+
+The variables in the table below only valid during initialization, if you need to make it valid, please delete `/opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini` and restart the container.
+| Variable           | Describe                 | Default Values          | Allowed Values |
+|--------------------|--------------------------|-------------------------|----------------|
+| SERVER_NAME        | Server name              | Default Palworld Server | string         |
+| SERVER_DESC        | Server description       | Default Palworld Server | string         |
+| ADMIN_PASSWORD     | AdminPassword            |                         | string         |
+| SERVER_PASSWORD    | Set the server password. |                         | string         |
+| RCON_ENABLED       | Enable RCON              | false                   | true/false     |
+| RCON_PORT          | Port number for RCON     | 25575                   | 1024-65535     |
+
+For balance changes, please directly modify `/opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`, please refer to <https://tech.palworldgame.com/optimize-game-balance>
 
 ## Volumes
 
