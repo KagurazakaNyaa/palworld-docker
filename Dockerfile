@@ -17,6 +17,8 @@ ADD docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 8211/udp
 
+# fix permission
+RUN mkdir -p /opt/palworld/Pal/Saved
 VOLUME [ "/opt/palworld/Pal/Saved" ]
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
