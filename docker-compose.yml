@@ -2,6 +2,7 @@ version: '3.9'
 
 services:
   dedicated-server:
+    user: "1000:1000"
     image: kagurazakanyaa/palworld:latest
     # build: # only use in test
     #   context: .
