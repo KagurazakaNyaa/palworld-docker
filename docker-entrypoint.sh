@@ -29,6 +29,7 @@ if [[ ! -f /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini ]];th
         sed -i "s^RCONPort=25575^RCONPort=$RCON_PORT^g" /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
     fi
 fi
+chmod 666 /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
 
 extra_opts=""
 if [[ -n $ENABLE_MULTITHREAD ]] && [[ $ENABLE_MULTITHREAD == "true" ]];then
