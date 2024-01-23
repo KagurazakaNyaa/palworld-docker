@@ -21,7 +21,7 @@ ENV RCON_PORT=25575
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-EXPOSE 8211/udp
+EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp
 
 # fix permission
 RUN mkdir -p /opt/palworld/Pal/Saved

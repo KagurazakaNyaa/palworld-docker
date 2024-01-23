@@ -9,6 +9,7 @@ services:
     network_mode: bridge
     ports:
       - 8211:8211/udp
+      # - 25575:25575/tcp # only use in RCON_ENABLED=true
     environment:
       - GAME_PORT=8211
       - MAX_PLAYERS=32
