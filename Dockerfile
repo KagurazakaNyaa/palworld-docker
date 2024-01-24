@@ -25,6 +25,7 @@ EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp
 
 # fix permission
 RUN mkdir -p /opt/palworld/Pal/Saved
-VOLUME [ "/opt/palworld/Pal/Saved" ]
+RUN mkdir -p /opt/palworld/Pal/Content/Paks/Mods
+VOLUME [ "/opt/palworld/Pal/Saved", "/opt/palworld/Pal/Content/Paks/Mods" ]
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
