@@ -27,4 +27,4 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/palworld/Pal/Saved
-      - ./mods:/opt/palworld/Pal/Content/Paks/Mods
+      - ./mods:/opt/palworld/Pal/Content/Paks/MOD

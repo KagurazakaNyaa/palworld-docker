@@ -38,7 +38,7 @@ For balance changes, please directly modify `/opt/palworld/Pal/Saved/Config/Linu
 |Path                                   |Describe               |
 |---------------------------------------|-----------------------|
 |`/opt/palworld/Pal/Saved`              |Game config and saves. |
-|`/opt/palworld/Pal/Content/Paks/Mods`  |Game mod pak files.    |
+|`/opt/palworld/Pal/Content/Paks/MOD`  |Game mod pak files.    |
 
 NOTE: If you use bind instead of volume to mount, you need to manually change the volume owner to uid=1000.
 In the case of the docker-compose.yml of the example, you need to execute `chown -R 1000:1000 ./data ./mods`
