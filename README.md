@@ -4,7 +4,7 @@
 [![Build Docker Image](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/build.yml/badge.svg)](https://github.com/KagurazakaNyaa/palworld-docker/actions/workflows/build.yml)
 ![Docker Pulls](https://img.shields.io/docker/pulls/kagurazakanyaa/palworld)
 ![Docker Stars](https://img.shields.io/docker/stars/kagurazakanyaa/palworld)
-![Image Size](https://img.shields.io/docker/image-size/kagurazakanyaa/palworld/latest)
+![Image Size](https://img.shields.io/docker/image-size/kagurazakanyaa/palworld/fixed)
 
 Palworld dedicated server with docker
 
