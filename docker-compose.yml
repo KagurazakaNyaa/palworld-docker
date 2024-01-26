@@ -17,7 +17,6 @@ services:
       - IS_PUBLIC=false
       - PUBLIC_IP=
       - PUBLIC_PORT=
-      - FORCE_UPDATE=false
       - SERVER_NAME=Default Palworld Server
       - SERVER_DESC=Default Palworld Server
       - ADMIN_PASSWORD=changeme
