@@ -8,6 +8,8 @@
 
 Palworld dedicated server with docker
 
+NOTE: This fixed branch includes binaries from [unofficial sources](https://github.com/VeroFess/PalWorld-Server-Unoffical-Fix), please do not use if you do not trust this source.
+
 ## Environments
 
 The variables in the table below affect the server's startup command, see <https://tech.palworldgame.com/dedicated-server-guide#settings> and <https://tech.palworldgame.com/community-server-guide>
@@ -19,7 +21,6 @@ The variables in the table below affect the server's startup command, see <https
 | IS_PUBLIC          | Setup server as a community server.                         | false          | true/false           |
 | PUBLIC_IP          | If not specified, it will be detected automatically.        |                | all vaild ip address |
 | PUBLIC_PORT        | If not specified, it will be detected automatically.        |                | 1024-65535           |
-| FORCE_UPDATE       | Whether the server should be update each time start.        | false          | true/false           |
 
 The variables in the table below only valid during initialization, if you need to make it valid, please delete `/opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini` and restart the container.
 | Variable           | Describe                 | Default Values          | Allowed Values |
@@ -38,7 +39,7 @@ For balance changes, please directly modify `/opt/palworld/Pal/Saved/Config/Linu
 |Path                                   |Describe               |
 |---------------------------------------|-----------------------|
 |`/opt/palworld/Pal/Saved`              |Game config and saves. |
-|`/opt/palworld/Pal/Content/Paks/MOD`  |Game mod pak files.    |
+|`/opt/palworld/Pal/Content/Paks/MOD`   |Game mod pak files.    |
 
 NOTE: If you use bind instead of volume to mount, you need to manually change the volume owner to uid=1000.
 In the case of the docker-compose.yml of the example, you need to execute `chown -R 1000:1000 ./data ./mods`

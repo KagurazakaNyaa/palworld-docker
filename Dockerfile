@@ -11,7 +11,7 @@ ENV ENABLE_MULTITHREAD=true
 ENV IS_PUBLIC=false
 ENV PUBLIC_IP=
 ENV PUBLIC_PORT=
-ENV FORCE_UPDATE=false
+# ENV FORCE_UPDATE=false
 ENV SERVER_NAME="Default Palworld Server"
 ENV SERVER_DESC="Default Palworld Server"
 ENV ADMIN_PASSWORD=changeme
@@ -20,6 +20,9 @@ ENV RCON_ENABLED=false
 ENV RCON_PORT=25575
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
+
+RUN curl https://github.com/VeroFess/PalWorld-Server-Unoffical-Fix/releases/download/1.3.0-Update-2/PalServer-Linux-Test-Patch-Update-2 > /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test
+RUN chmod +x /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test
 
 EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp
 
