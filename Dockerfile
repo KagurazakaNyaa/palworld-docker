@@ -21,8 +21,9 @@ ENV RCON_PORT=25575
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN curl https://github.com/VeroFess/PalWorld-Server-Unoffical-Fix/releases/download/1.3.0-Update-2/PalServer-Linux-Test-Patch-Update-2 > /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test
-RUN chmod +x /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test
+RUN curl -L https://github.com/VeroFess/PalWorld-Server-Unoffical-Fix/releases/download/1.3.0-Update-2/PalServer-Linux-Test-Patch-Update-2 -o /tmp/PalServer-Linux-Test &&\
+    mv -f /tmp/PalServer-Linux-Test /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test &&\
+    chmod +x /opt/palworld/Pal/Binaries/Linux/PalServer-Linux-Test
 
 EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp
 
