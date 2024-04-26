@@ -30,6 +30,8 @@ The variables in the table below only valid during initialization, if you need t
 | SERVER_PASSWORD    | Set the server password. |                         | string         |
 | RCON_ENABLED       | Enable RCON              | false                   | true/false     |
 | RCON_PORT          | Port number for RCON     | 25575                   | 1024-65535     |
+| RESTAPI_ENABLED       | Enable RESTAPI              | false                   | true/false     |
+| RESTAPI_PORT          | Port number for RESTAPI     | 8212                   | 1024-65535     |
 
 For balance changes, please directly modify `/opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`, please refer to <https://tech.palworldgame.com/optimize-game-balance>
 

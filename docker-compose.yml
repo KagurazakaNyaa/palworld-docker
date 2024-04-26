@@ -9,6 +9,7 @@ services:
     network_mode: bridge
     ports:
       - 8211:8211/udp
+      # - 8212:8212/tcp # only use in RESTAPI_ENABLED=true
       # - 25575:25575/tcp # only use in RCON_ENABLED=true
     environment:
       - GAME_PORT=8211
@@ -24,6 +25,8 @@ services:
       - SERVER_PASSWORD=
       - RCON_ENABLED=false
       - RCON_PORT=25575
+      - RESTAPI_ENABLED=false
+      - RESTAPI_PORT=8212
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/palworld/Pal/Saved

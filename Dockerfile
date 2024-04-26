@@ -18,10 +18,12 @@ ENV ADMIN_PASSWORD=changeme
 ENV SERVER_PASSWORD=
 ENV RCON_ENABLED=false
 ENV RCON_PORT=25575
+ENV RESTAPI_ENABLED=false
+ENV RESTAPI_PORT=8212
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
-EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp
+EXPOSE ${GAME_PORT}/udp ${RCON_PORT}/tcp ${RESTAPI_PORT}/tcp
 
 # fix permission
 RUN mkdir -p /opt/palworld/Pal/Saved

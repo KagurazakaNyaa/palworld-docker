@@ -25,6 +25,12 @@ if [[ ! -f /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini ]]; t
     if [[ -n $RCON_PORT ]]; then
         sed -i "s^RCONPort=25575^RCONPort=$RCON_PORT^g" /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
     fi
+    if [[ -n $RESTAPI_ENABLED ]] && [[ $RESTAPI_ENABLED == "true" ]]; then
+        sed -i "s^RESTAPIEnabled=False^RESTAPIEnabled=True^g" /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+    fi
+    if [[ -n $RESTAPI_PORT ]]; then
+        sed -i "s^RESTAPIPort=8212^RESTAPIPort=$RESTAPI_PORT^g" /opt/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+    fi
 fi
 
 extra_opts=""
