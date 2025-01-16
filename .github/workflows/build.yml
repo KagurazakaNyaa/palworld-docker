@@ -22,7 +22,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: kagurazakanyaa/palworld
+          images: ywmdocker/palworld
 
       - name: Build and push
         id: docker_build
