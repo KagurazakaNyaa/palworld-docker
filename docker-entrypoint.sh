@@ -39,7 +39,7 @@ if [[ -n $ENABLE_MULTITHREAD ]] && [[ $ENABLE_MULTITHREAD == "true" ]]; then
 fi
 community_opts=""
 if [[ -n $IS_PUBLIC ]] && [[ $IS_PUBLIC == "true" ]]; then
-    community_opts="EpicApp=PalServer"
+    community_opts="EpicApp=PalServer -publiclobby"
 fi
 if [[ -n $PUBLIC_IP ]]; then
     community_opts="$community_opts -publicip=$PUBLIC_IP"
