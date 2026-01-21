@@ -3,6 +3,7 @@ FROM cm2network/steamcmd:steam
 ARG DEBIAN_FRONTEND=noninteractive
 WORKDIR /opt/palworld
 
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
 RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/palworld" +login anonymous +app_update 2394010 validate +quit
 
 ENV GAME_PORT=8211
