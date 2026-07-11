@@ -1,8 +1,9 @@
 services:
   dedicated-server:
     image: kagurazakanyaa/palworld:latest
-    # build: # only use in test
-    #   context: .
+    build:
+      # only use in test
+      context: .
     restart: unless-stopped
     network_mode: bridge
     ports:
@@ -10,25 +11,51 @@ services:
       # - 8212:8212/tcp # only use in RESTAPI_ENABLED=true
       # - 25575:25575/tcp # only use in RCON_ENABLED=true
     environment:
+      # Container lifecycle
+      - FORCE_UPDATE=false
+
+      # PalServer startup
       - GAME_PORT=8211
       - MAX_PLAYERS=32
-      - ENABLE_MULTITHREAD=true
-      - ENABLE_LEGACY_MULTITHREAD=false
-      - WORKER_THREADS=4
       - LOG_FORMAT=text
+      # PUBLIC_IP and PUBLIC_PORT apply only when IS_PUBLIC=true.
       - IS_PUBLIC=false
       - PUBLIC_IP=
       - PUBLIC_PORT=
-      - FORCE_UPDATE=false
+
+      # Server identity and access
       - SERVER_NAME=Default Palworld Server
       - SERVER_DESC=Default Palworld Server
-      - ADMIN_PASSWORD=changeme
       - SERVER_PASSWORD=
+
+      # Remote administration
+      # Do not publish these ports directly to the Internet.
+      - ADMIN_PASSWORD=changeme
       - RCON_ENABLED=false
       - RCON_PORT=25575
       - RESTAPI_ENABLED=false
       - RESTAPI_PORT=8212
+
+      # Crossplay
       - CROSSPLAY_PLATFORMS=Steam,Xbox,PS5,Mac
+
+      # Performance
+      # Palworld v1.0 recommends leaving the legacy flags disabled.
+      - ENABLE_MULTITHREAD=false
+      # Optional worker count, used only when legacy multithreading is enabled.
+      - WORKER_THREADS=
+      # Empty values preserve DefaultPalWorldSettings.ini defaults.
+      - BASE_CAMP_MAX_NUM=
+      - BASE_CAMP_MAX_NUM_IN_GUILD=4
+      - BASE_CAMP_WORKER_MAX_NUM=
+      - ITEM_CONTAINER_FORCE_MARK_DIRTY_INTERVAL=
+      - MAX_BUILDING_LIMIT_NUM=
+      - PHYSICS_ACTIVE_DROP_ITEM_MAX_NUM=
+      - SERVER_REPLICATE_PAWN_CULL_DISTANCE=
+
+      # Backups
+      # Set true to enable world backups; this increases disk load.
+      - ENABLE_BACKUP_SAVE_DATA=
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./data:/opt/palworld/Pal/Saved

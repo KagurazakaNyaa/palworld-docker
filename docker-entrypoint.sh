@@ -55,11 +55,11 @@ if [[ ! -f $settings_file ]]; then
     if [[ -n $SERVER_DESC ]]; then
         set_quoted_setting ServerDescription "$SERVER_DESC"
     fi
-    if [[ -n $ADMIN_PASSWORD ]]; then
-        set_quoted_setting AdminPassword "$ADMIN_PASSWORD"
-    fi
     if [[ -n $SERVER_PASSWORD ]]; then
         set_quoted_setting ServerPassword "$SERVER_PASSWORD"
+    fi
+    if [[ -n $ADMIN_PASSWORD ]]; then
+        set_quoted_setting AdminPassword "$ADMIN_PASSWORD"
     fi
     if [[ -n $RCON_ENABLED ]]; then
         set_bool_setting RCONEnabled "$RCON_ENABLED"
@@ -76,20 +76,42 @@ if [[ ! -f $settings_file ]]; then
     if [[ -n $CROSSPLAY_PLATFORMS ]]; then
         set_crossplay_platforms "$CROSSPLAY_PLATFORMS"
     fi
+    if [[ -n $BASE_CAMP_MAX_NUM ]]; then
+        set_scalar_setting BaseCampMaxNum "$BASE_CAMP_MAX_NUM"
+    fi
+    if [[ -n $BASE_CAMP_MAX_NUM_IN_GUILD ]]; then
+        set_scalar_setting BaseCampMaxNumInGuild "$BASE_CAMP_MAX_NUM_IN_GUILD"
+    fi
+    if [[ -n $BASE_CAMP_WORKER_MAX_NUM ]]; then
+        set_scalar_setting BaseCampWorkerMaxNum "$BASE_CAMP_WORKER_MAX_NUM"
+    fi
+    if [[ -n $ITEM_CONTAINER_FORCE_MARK_DIRTY_INTERVAL ]]; then
+        set_scalar_setting ItemContainerForceMarkDirtyInterval "$ITEM_CONTAINER_FORCE_MARK_DIRTY_INTERVAL"
+    fi
+    if [[ -n $MAX_BUILDING_LIMIT_NUM ]]; then
+        set_scalar_setting MaxBuildingLimitNum "$MAX_BUILDING_LIMIT_NUM"
+    fi
+    if [[ -n $PHYSICS_ACTIVE_DROP_ITEM_MAX_NUM ]]; then
+        set_scalar_setting PhysicsActiveDropItemMaxNum "$PHYSICS_ACTIVE_DROP_ITEM_MAX_NUM"
+    fi
+    if [[ -n $SERVER_REPLICATE_PAWN_CULL_DISTANCE ]]; then
+        set_scalar_setting ServerReplicatePawnCullDistance "$SERVER_REPLICATE_PAWN_CULL_DISTANCE"
+    fi
+    if [[ -n $ENABLE_BACKUP_SAVE_DATA ]]; then
+        set_bool_setting bIsUseBackupSaveData "$ENABLE_BACKUP_SAVE_DATA"
+    fi
 fi
 
 server_opts=(
     "-port=$GAME_PORT"
     "-players=$MAX_PLAYERS"
 )
-if [[ -n $ENABLE_LEGACY_MULTITHREAD ]] && [[ $ENABLE_LEGACY_MULTITHREAD == "true" ]]; then
+if [[ -n $ENABLE_MULTITHREAD ]] && [[ $ENABLE_MULTITHREAD == "true" ]]; then
     server_opts+=(
         -useperfthreads
         -NoAsyncLoadingThread
         -UseMultithreadForDS
     )
-fi
-if [[ -n $ENABLE_MULTITHREAD ]] && [[ $ENABLE_MULTITHREAD == "true" ]]; then
     if [[ -n $WORKER_THREADS ]]; then
         server_opts+=("-NumberOfWorkerThreadsServer=$WORKER_THREADS")
     fi
