@@ -9,6 +9,9 @@ RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir "/opt/palworld" +login a
 ENV GAME_PORT=8211
 ENV MAX_PLAYERS=32
 ENV ENABLE_MULTITHREAD=true
+ENV ENABLE_LEGACY_MULTITHREAD=false
+ENV WORKER_THREADS=4
+ENV LOG_FORMAT=text
 ENV IS_PUBLIC=false
 ENV PUBLIC_IP=
 ENV PUBLIC_PORT=
@@ -21,6 +24,7 @@ ENV RCON_ENABLED=false
 ENV RCON_PORT=25575
 ENV RESTAPI_ENABLED=false
 ENV RESTAPI_PORT=8212
+ENV CROSSPLAY_PLATFORMS=Steam,Xbox,PS5,Mac
 
 ADD docker-entrypoint.sh /docker-entrypoint.sh
 
