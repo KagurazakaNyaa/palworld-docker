@@ -1,9 +1,9 @@
 services:
   dedicated-server:
     image: kagurazakanyaa/palworld:latest
-    build:
-      # only use in test
-      context: .
+    # build:
+    #   # only use in test
+    #   context: .
     restart: unless-stopped
     network_mode: bridge
     ports:
